@@ -1,5 +1,8 @@
 # Python threat modeler tool
-A simple threat modelling tool written in Python
+### A simple threat modelling tool written in Python
+
+![Main screen](images/main-screen.png "Main screen")
+![Threat matrix](images/threat-matrix.png "Threat matrix")
 
 To run, execute `python3 threat_modeler.py`
 
@@ -11,3 +14,4 @@ You can export the threat model as a JSON file or it can also be exported as a C
 
 ## To follow
 - Changing 1 - 5 values for assets and likelihood to words such as "very unlikely", "very likely", "low value" etc. and displaying them instead of the numeric values.
+
