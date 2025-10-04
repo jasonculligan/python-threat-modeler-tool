@@ -1,4 +1,4 @@
-# python-threat-modeler-tool
+# Python threat modeler tool
 A simple threat modelling tool written in Python
 
 To run, execute `python3 threat_modeler.py`
