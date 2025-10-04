@@ -1,0 +1,107 @@
+{
+  "assets": [
+    {
+      "id": "f1105ee8-814f-47ea-be5e-dd6559c49248",
+      "name": "Private key file",
+      "value": 5
+    },
+    {
+      "id": "95a18c4c-16f9-4e48-9c5c-bb87ae69cd4e",
+      "name": "Web App javascript",
+      "value": 4
+    },
+    {
+      "id": "428b6657-6875-4588-8fa0-c98584156cf2",
+      "name": "Public key",
+      "value": 2
+    },
+    {
+      "id": "b73fedfb-7d78-417d-8380-eb7ed59beeae",
+      "name": "Log files",
+      "value": 1
+    },
+    {
+      "id": "63789149-2214-4342-a8be-48366b5e74ff",
+      "name": "Availability",
+      "value": 5
+    }
+  ],
+  "attack_surfaces": [
+    {
+      "id": "aa31e000-006c-4d73-b862-c21145cd8360",
+      "name": "Public API"
+    },
+    {
+      "id": "69fccb27-9a27-4445-9e1d-a6a30068c8d1",
+      "name": "Admin Interface"
+    },
+    {
+      "id": "91be6367-002a-4e99-9e73-a8abea2cf001",
+      "name": "Postgresql database"
+    },
+    {
+      "id": "1f47a71e-8f9c-428e-9685-64515a291650",
+      "name": "/opt/app/private/ directory"
+    },
+    {
+      "id": "c3f9fbec-32d9-4aca-9b99-ba4a2f4f8261",
+      "name": "/var/log/app/ directory"
+    },
+    {
+      "id": "df36325d-984c-4b73-8af0-413b24af546a",
+      "name": "/opt/app/ directory"
+    }
+  ],
+  "adversaries": [
+    {
+      "id": "c427ac0f-388f-4e1b-9948-94f734b06b86",
+      "name": "Network adversary"
+    },
+    {
+      "id": "96f53ff3-ace5-4adc-ad3b-343df70f22dc",
+      "name": "Software adversary"
+    }
+  ],
+  "threats": [
+    {
+      "id": "353ede5e-ca11-4cbf-b00a-64eba9fe9976",
+      "asset_id": "f1105ee8-814f-47ea-be5e-dd6559c49248",
+      "attack_surface_id": "1f47a71e-8f9c-428e-9685-64515a291650",
+      "adversary_id": "96f53ff3-ace5-4adc-ad3b-343df70f22dc",
+      "description": "Adversary could take the asset and use it to decrypt data from the database",
+      "likelihood": 3,
+      "mitigation": "Use a strict directory mode of 750 and file mode of 640 on the file",
+      "mitigation_validation": "Use the Linux stat command to check the mode matches"
+    },
+    {
+      "id": "2a629dae-a6f2-48c9-be34-b9ed81b573fb",
+      "asset_id": "b73fedfb-7d78-417d-8380-eb7ed59beeae",
+      "attack_surface_id": "c3f9fbec-32d9-4aca-9b99-ba4a2f4f8261",
+      "adversary_id": "96f53ff3-ace5-4adc-ad3b-343df70f22dc",
+      "description": "Adversary could read or tamper with logs causing information disclosure or loss of repudiation",
+      "likelihood": 3,
+      "mitigation": "Use a strict directory mode of 750 and file mode of 640 on the file",
+      "mitigation_validation": "Use the Linux stat command to check the mode matches"
+    },
+    {
+      "id": "d8ee54b1-d69d-4b72-9608-f1078b514a1d",
+      "asset_id": "95a18c4c-16f9-4e48-9c5c-bb87ae69cd4e",
+      "attack_surface_id": "df36325d-984c-4b73-8af0-413b24af546a",
+      "adversary_id": "96f53ff3-ace5-4adc-ad3b-343df70f22dc",
+      "description": "Adversary could delete the file causing a DoS, tamper with the file causing client side security risks",
+      "likelihood": 2,
+      "mitigation": "Use a strict directory mode of 750 and file mode of 640 on the file",
+      "mitigation_validation": "Use the Linux stat command to check the mode matches"
+    },
+    {
+      "id": "1a602ef5-1d72-4e37-b903-00bb9b28d4f9",
+      "asset_id": "63789149-2214-4342-a8be-48366b5e74ff",
+      "attack_surface_id": "aa31e000-006c-4d73-b862-c21145cd8360",
+      "adversary_id": "c427ac0f-388f-4e1b-9948-94f734b06b86",
+      "description": "Adversary could spam the service and attempt to cause a denial of service",
+      "likelihood": 5,
+      "mitigation": "Use service throttling.  Use authentication on the endpoint.",
+      "mitigation_validation": "Send multiple connections to the endpoint and observe a throttling delay.  Attempt to connect without credentials and observe an \"access denied\" message."
+    }
+  ]
+}
