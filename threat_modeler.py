@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 """
-threat_modeler_04.py
-
 Threat Modeler GUI — single-window app.
 
 Features:
