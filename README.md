@@ -6,7 +6,7 @@
 
 To run, execute `python3 threat_modeler.py`
 
-Add assets, attack surfaces and adversaries first.  Then use the central top section to assemble threats one by one.
+Add assets, attack surfaces and adversaries first.  Then use the central top section to assemble threats one by one.  Risk is automatically calculated using a standard 5x5 matrix, multiplying the asset value by the likelihood of the threat.
 
 A threat matrix is also available from the menu once threats have been added.
 
